@@ -1,5 +1,7 @@
 import React, { Component } from "react";
+import { Router } from "@reach/router";
 import openSocket from "socket.io-client";
+import MessageBoard from "./components/MessageBoard";
 const socket = openSocket("http://localhost:5000");
 
 // Change to class component
@@ -36,10 +38,14 @@ class App extends Component {
   render() {
     console.log(this.state);
     return (
-      <div>
-        <input onChange={e => this.onTextChange(e)} value={this.state.msg} />
-        <button onClick={this.onMessageSubmit}>Send</button>
-      </div>
+      <Router>
+        <MessageBoard
+          onMessageSubmit={this.onMessageSubmit}
+          onTextChange={this.onTextChange}
+          msg={this.state.currentMsg.msg}
+          path="/messenger"
+        />
+      </Router>
     );
   }
 }
