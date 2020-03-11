@@ -7,6 +7,7 @@ io.on("connection", socket => {
   const { id } = socket.client;
   console.log(`User connected: ${id}`);
   socket.on("chat message", msg => {
+    io.emit("chat message", msg);
     console.log(`${id}: ${msg}`);
   });
 });
