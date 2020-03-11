@@ -8,7 +8,6 @@ class LandingPage extends Component {
   };
 
   render() {
-    console.log(this.state);
     return (
       <form onSubmit={this.handleSubmit}>
         <input
@@ -23,8 +22,10 @@ class LandingPage extends Component {
           onChange={this.handleChange}
           placeholder="Your avatar url..."
         />
+
+        <button type="submit">Add User Details</button>
         <Link to="/messenger">
-          <button>Start chatting!</button>
+          <button>Start chatting</button>
         </Link>
       </form>
     );
