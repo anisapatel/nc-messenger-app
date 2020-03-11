@@ -6,8 +6,8 @@ const io = require("socket.io")(server);
 io.on("connection", socket => {
   const { id } = socket.client;
   console.log(`User connected: ${id}`);
-  socket.on("chat message", msg => {
-    io.emit("chat message", msg);
+  socket.on("chat message", msg, id => {
+    io.emit("chat message", msg, id);
     console.log(`${id}: ${msg}`);
   });
 });
