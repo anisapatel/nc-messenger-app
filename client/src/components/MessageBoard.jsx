@@ -35,7 +35,7 @@ class MessageBoard extends Component {
     return (
       <>
         {this.state.messages.map(message => {
-          return cd <p>{message}</p>;
+          return <p>{message}</p>;
         })}
         <div>
           <input onChange={e => this.onTextChange(e)} value={this.state.msg} />
